@@ -24,7 +24,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
 
       - name: Fetch latest data
-        run:  Rscript -e scrape.R
+        run:  Rscript scrape.R
 
       - name: Commit Results
         run: |
