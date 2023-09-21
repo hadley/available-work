@@ -1,3 +1,5 @@
+# Inspired by <https://simonwillison.net/2020/Oct/9/git-scraping/>
+
 library(rvest)
 
 url <- "http://www.westonlambert.com/available-work"
