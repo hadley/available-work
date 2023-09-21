@@ -9,7 +9,7 @@ on:
 name: scrape
 
 jobs:
-  render-rmarkdown:
+  scrape:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
