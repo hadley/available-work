@@ -20,4 +20,8 @@ df <- data.frame(
 
 write.csv(df, "products.csv", row.names = FALSE)
 
-
+available <- subset(df, sold_out != "sold out")
+if (nrow(available) > 0) {
+  msg <- paste0(nrow(available), " products available at ", url)
+  ntfy::ntfy_send(msg, topic = "BjFR7fMVkYMSsFrS")
+}
