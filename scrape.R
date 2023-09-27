@@ -15,7 +15,8 @@ df <- data.frame(
   price = products |> html_element(".product-price") |> html_text() |>
     gsub("[$,]", "", x = _) |>
     as.numeric(),
-  sold_out = products |> html_element(".sold-out") |> html_text()
+  sold_out = products |> html_element(".sold-out") |> html_text(),
+  link = html_attr(products, "href")
 )
 
 write.csv(df, "products.csv", row.names = FALSE)
