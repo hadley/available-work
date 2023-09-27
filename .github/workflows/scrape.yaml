@@ -11,6 +11,8 @@ name: scrape
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -29,6 +31,6 @@ jobs:
       - name: Commit Results
         run: |
           git config --local user.name "$GITHUB_ACTOR"
-          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.email "<>"
           git commit products.csv -m 'Scraping' || exit 0
           git push origin
