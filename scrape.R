@@ -10,7 +10,7 @@ products <- html |>
   html_element("#productList") |>
   html_elements("a")
 
-df <- data.frame(
+cur <- data.frame(
   title = products |> html_element(".product-title") |> html_text(),
   price = products |> html_element(".product-price") |> html_text() |>
     gsub("[$,]", "", x = _) |>
@@ -19,10 +19,11 @@ df <- data.frame(
   link = html_attr(products, "href")
 )
 
-write.csv(df, "products.csv", row.names = FALSE)
+old <- read.csv("products.csv")
+write.csv(cur, "products.csv", row.names = FALSE)
 
-available <- subset(df, sold_out != "sold out")
-if (nrow(available) > 0) {
-  msg <- paste0(nrow(available), " products available at ", url)
+new <- subset(cur, is.na(sold_out) & !link %in% old$link)
+if (nrow(new) > 0) {
+  msg <- paste0(nrow(new), " products available at ", url)
   ntfy::ntfy_send(msg, topic = "BjFR7fMVkYMSsFrS")
 }
