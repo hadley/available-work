@@ -21,7 +21,7 @@ cur <- data.frame(
   sold_out = products |> html_element(".sold-out") |> html_text(),
   link = html_attr(products, "href")
 )
-cur
+print(cur, width = 150)
 
 cat(sprintf("::notice title=Scraping::Found %i products\n", nrow(cur)))
 
