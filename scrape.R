@@ -3,7 +3,6 @@
 library(rvest)
 
 url <- "http://www.westonlambert.com/available-work"
-
 html <- read_html(url)
 
 products <- html |>
@@ -24,15 +23,14 @@ cur <- data.frame(
 )
 cur
 
-if (cur$price < 0) {
-  stop("Found negative price! Something went wrong")
-}
+cat(sprintf("::notice title=Scraping::Found %i products\n", nrow(cur)))
 
 old <- read.csv("products.csv")
 write.csv(cur, "products.csv", row.names = FALSE)
 
 # Find all products that aren't sold out, and I didn't see last time
 new <- subset(cur, is.na(sold_out) & !link %in% old$link)
+cat(sprintf("::notice title=Scraping::Found %i new products\n", nrow(new)))
 if (nrow(new) > 0) {
   msg <- paste0(nrow(new), " products available at ", url)
   request("https://ntfy.sh/") |>
