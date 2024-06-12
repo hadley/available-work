@@ -10,7 +10,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
-    ntfy (>= 0.0.3),
+    httr2,
     rvest
 URL: https://github.com/hadley/available-work
 BugReports: https://github.com/hadley/available-work/issues
