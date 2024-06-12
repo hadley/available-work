@@ -4,7 +4,8 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron:  '15 1/4 * * *'
+    # Run every 3 hours at 15 minutes past the hour
+    - cron: '15 0/3 * * *'
 
 name: scrape
 
