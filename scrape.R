@@ -23,8 +23,8 @@ cur <- data.frame(
 
 out <- Sys.getenv("GITHUB_STEP_SUMMARY")
 if (out == "") out <- stdout()
-con <- file(out)
-cat("### Current products\n", file = con)
+con <- file(out, "w")
+cat("### Current products\n\n", file = con)
 writeLines(knitr::kable(cur), con)
 close(con)
 
