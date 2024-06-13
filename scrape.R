@@ -14,10 +14,12 @@ if (length(products) == 0) {
 
 cur <- data.frame(
   title = products |> html_element(".product-title") |> html_text(),
-  price = products |> html_element(".product-price") |> html_text() |>
+  price = products |> 
+    html_element(".product-price") |> 
+    html_text() |>
     gsub("[$,]", "", x = _) |>
     as.numeric(),
-  sold_out = products |> html_element(".sold-out") |> html_text(),
+  sold_out = products |> html_element(".sold-out") |> html_text() |> is.na(),
   link = html_attr(products, "href")
 )
 
@@ -34,7 +36,7 @@ old <- read.csv("products.csv")
 write.csv(cur, "products.csv", row.names = FALSE)
 
 # Find all products that aren't sold out, and I didn't see last time
-new <- subset(cur, is.na(sold_out) & !link %in% old$link)
+new <- subset(cur, !sold_out & !link %in% old$link)
 cat(sprintf("::notice title=Scraping::Found %i new products\n", nrow(new)))
 if (nrow(new) > 0) {
   msg <- paste0(nrow(new), " products available at ", url)
