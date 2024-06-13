@@ -2,6 +2,9 @@ Type: project
 Package: available-work
 Version: 1.0.0
 Imports: 
+    gha (>= 0.0.0.9000),
     httr2,
     knitr,
     rvest
+Remotes:  
+    r-lib/gha

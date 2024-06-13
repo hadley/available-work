@@ -1,5 +1,6 @@
 # Inspired by <https://simonwillison.net/2020/Oct/9/git-scraping/>
 library(rvest)
+library(gha)
 
 url <- "http://www.westonlambert.com/available-work"
 html <- read_html(url)
@@ -7,6 +8,7 @@ html <- read_html(url)
 products <- html |>
   html_element("#productList") |>
   html_elements("a")
+gha_notice("Found {length(products)} products")
 
 if (length(products) == 0) {
   stop("No products found! Did the website change?")
@@ -22,22 +24,16 @@ cur <- data.frame(
   sold_out = products |> html_element(".sold-out") |> html_text() |> is.na(),
   link = html_attr(products, "href")
 )
-
-out <- Sys.getenv("GITHUB_STEP_SUMMARY")
-if (out == "") out <- stdout()
-con <- file(out, "w")
-cat("### Current products\n\n", file = con)
-writeLines(knitr::kable(cur), con)
-close(con)
-
-cat(sprintf("::notice title=Scraping::Found %i products\n", nrow(cur)))
+gha_summary("### Current products\n")
+gha_summary(knitr::kable(cur))
 
 old <- read.csv("products.csv")
 write.csv(cur, "products.csv", row.names = FALSE)
 
 # Find all products that aren't sold out, and I didn't see last time
 new <- subset(cur, !sold_out & !link %in% old$link)
-cat(sprintf("::notice title=Scraping::Found %i new products\n", nrow(new)))
+gha_notice("Found {nrow(new)} new products")
+
 if (nrow(new) > 0) {
   msg <- paste0(nrow(new), " products available at ", url)
   request("https://ntfy.sh/") |>
