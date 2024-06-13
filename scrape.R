@@ -23,8 +23,10 @@ cur <- data.frame(
 
 out <- Sys.getenv("GITHUB_STEP_SUMMARY")
 if (out == "") out <- stdout()
-cat("### Current products\n", file = out)
-writeLines(knitr::kable(cur), out)
+con <- file(out)
+cat("### Current products\n", file = con)
+writeLines(knitr::kable(cur), con)
+close(con)
 
 cat(sprintf("::notice title=Scraping::Found %i products\n", nrow(cur)))
 
