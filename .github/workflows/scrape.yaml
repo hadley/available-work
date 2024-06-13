@@ -2,7 +2,7 @@ on:
   push:
   workflow_dispatch:
   # Run every 3 hours at 15 minutes past the hour
-  schedule: {cron: '15 0/3 * * *'}
+  schedule: [{cron: '15 0/3 * * *'}]
 
 name: scrape
 
