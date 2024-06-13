@@ -1,5 +1,4 @@
 # Inspired by <https://simonwillison.net/2020/Oct/9/git-scraping/>
-
 library(rvest)
 
 url <- "http://www.westonlambert.com/available-work"
@@ -21,7 +20,11 @@ cur <- data.frame(
   sold_out = products |> html_element(".sold-out") |> html_text(),
   link = html_attr(products, "href")
 )
-print(cur, width = 150)
+
+out <- Sys.getenv("GITHUB_STEP_SUMMARY")
+if (out == "") out <- stdout()
+cat("### Current products\n", file = out)
+writeLines(knitr::kable(cur), out)
 
 cat(sprintf("::notice title=Scraping::Found %i products\n", nrow(cur)))
 
