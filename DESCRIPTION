@@ -1,4 +1,5 @@
 Package: available-work
+Type: project
 Version: 1.0.0
 Imports: 
     httr2,
