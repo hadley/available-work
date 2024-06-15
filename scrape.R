@@ -40,6 +40,6 @@ if (nrow(new) > 0) {
   request("https://ntfy.sh/") |>
     req_url_path("BjFR7fMVkYMSsFrS") |>
     req_body_raw(msg) |>
-    req_headers(Title = "Update at Weston Lambert", Click = "https://google.com") |>
+    req_headers(Title = "Update at Weston Lambert", Click = url) |>
     req_perform()
 }
