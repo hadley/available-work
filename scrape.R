@@ -22,7 +22,7 @@ cur <- data.frame(
     html_text() |>
     gsub("[$,]", "", x = _) |>
     as.numeric(),
-  sold_out = products |> html_element(".sold-out") |> html_text() |> is.na(),
+  sold_out = !(products |> html_element(".sold-out") |> html_text() |> is.na()),
   link = html_attr(products, "href")
 )
 gha_summary("### Current products\n")
