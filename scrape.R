@@ -25,6 +25,8 @@ cur <- data.frame(
   sold_out = !(products |> html_element(".sold-out") |> html_text() |> is.na()),
   link = html_attr(products, "href")
 )
+gha_notice("Found {sum(!cur$sold_out)} available products")
+
 gha_summary("### Current products\n")
 gha_summary(knitr::kable(cur))
 
@@ -36,6 +38,7 @@ new <- subset(cur, !sold_out & !link %in% old$link)
 gha_notice("Found {nrow(new)} new products")
 
 if (nrow(new) > 0) {
+  gha_notice("Sending notification")
   msg <- paste0(nrow(new), " products available at ", url)
   request("https://ntfy.sh/") |>
     req_url_path("BjFR7fMVkYMSsFrS") |>
