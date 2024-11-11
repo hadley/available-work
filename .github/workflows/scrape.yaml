@@ -23,4 +23,11 @@ jobs:
     - name: Fetch latest data
       run: Rscript scrape.R
 
+    - name: Create commit message
+      id: commit_message_step
+      run: |
+        echo "commit_message=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
+
     - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
