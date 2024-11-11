@@ -1,18 +1,23 @@
+
+name: run.yml
 on:
-  push:
   workflow_dispatch:
   # Run every 3 hours at 15 minutes past the hour
-  schedule: [{cron: '15 0/3 * * *'}]
+  schedule:
+  - cron: '15 0/3 * * *'
 
-name: scrape
+permissions: read-all
 
 jobs:
-  scrape:
+  cran-update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    container:
+      image: ghcr.io/${{ github.repository }}:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - uses: actions/checkout@v4
     - uses: r-lib/actions/setup-r@v2

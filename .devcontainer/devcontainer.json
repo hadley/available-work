@@ -1,0 +1,19 @@
+{
+    "name": "r-app",
+    "postCreateCommand": "service ssh start",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "r-app",
+    "shutdownAction": "stopCompose",
+    // It is not mounted automatically if we use a compose file (?)
+    "mounts": [{
+            "source": ".",
+            "target": "/workspaces/${localWorkspaceFolderBasename}",
+            "type": "bind"
+        }, {
+            "source": "~/.gitconfig",
+            "target": "/etc/gitconfig",
+            "type": "bind"
+        }
+    ],
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}
