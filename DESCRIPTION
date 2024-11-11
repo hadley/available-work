@@ -1,10 +1,11 @@
 Type: project
 Package: available-work
 Version: 1.0.0
-Imports: 
+Imports:
     gha (>= 0.0.0.9000),
     httr2,
     knitr,
     rvest
-Remotes:  
+Remotes:
     r-lib/gha
+License: MIT
