@@ -26,6 +26,7 @@ jobs:
         push: true
         target: prod
         tags: ghcr.io/${{ github.repository }}:latest
+        labels: org.opencontainers.image.source=${{ github.repository }}
         secret-envs:
           CODECOV_TOKEN=CODECOV_TOKEN
         build-args: |
