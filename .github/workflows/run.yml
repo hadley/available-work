@@ -24,6 +24,9 @@ jobs:
     - name: Fetch latest data
       run: Rscript scrape.R
 
+    - run: |
+        git config --global --add safe.directory /__w/available-work/available-work
+
     - name: Create commit message
       id: commit_message_step
       run: |
