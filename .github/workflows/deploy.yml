@@ -5,6 +5,9 @@ on:
     - '*'
   workflow_dispatch:
 
+permissions:
+  packages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
