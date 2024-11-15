@@ -9,7 +9,7 @@ on:
 permissions: read-all
 
 jobs:
-  run:
+  scrape:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,7 +25,7 @@ jobs:
       run: Rscript /app/scrape.R
 
     - run: |
-        git config --global --add safe.directory /__w/available-work/available-work
+        git config --global --add safe.directory $GITHUB_WORKSPACE
 
     - name: Create commit message
       id: commit_message_step
