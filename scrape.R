@@ -37,7 +37,8 @@ write.csv(cur, "products.csv", row.names = FALSE)
 new <- subset(cur, !sold_out & !link %in% old$link)
 gha_notice("Found {nrow(new)} new products")
 
-if (nrow(new) > 0) {
+# if (nrow(new) > 0) {
+if (FALSE) {
   gha_notice("Sending notification")
   msg <- paste0(nrow(new), " products available at ", url)
   request("https://ntfy.sh/") |>
