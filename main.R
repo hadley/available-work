@@ -30,8 +30,8 @@ gha_notice("Found {sum(!cur$sold_out)} available products")
 gha_summary("### Current products\n")
 gha_summary(knitr::kable(cur))
 
-old <- read.csv("products.csv")
-write.csv(cur, "products.csv", row.names = FALSE)
+old <- read.csv("data/products.csv")
+write.csv(cur, "data/products.csv", row.names = FALSE)
 
 # Find all products that aren't sold out, and I didn't see last time
 new <- subset(cur, !sold_out & !link %in% old$link)
