@@ -1,3 +1,5 @@
+library(rvest)
+
 test_that("find_products returns empty list if no products found", {
   html <- minimal_html("")
   products <- find_products(html)
