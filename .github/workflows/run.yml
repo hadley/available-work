@@ -1,10 +1,9 @@
-
 name: run.yml
 on:
   workflow_dispatch:
   # Run every 3 hours at 15 minutes past the hour
   schedule:
-  - cron: '15 0/3 * * *'
+    - cron: "15 0/3 * * *"
 
 permissions: read-all
 
@@ -19,19 +18,24 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: data
 
-    - name: Fetch latest data
-      run: Rscript /app/main.R
+      - name: Fetch latest data
+        run: Rscript /app/main.R
+        env:
+          R_APP_WORKSPACE: ${{ github.workspace }}
+          R_APP_TEMP: ${{ runner.temp }}
 
-    - run: |
-        git config --global --add safe.directory $GITHUB_WORKSPACE
+      - name: Create commit message
+        id: commit_message_step
+        run: |
+          echo "commit_message=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
 
-    - name: Create commit message
-      id: commit_message_step
-      run: |
-        echo "commit_message=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
-
-    - uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
+          branch: data
+          commit-message: ${{ steps.commit_message_step.outputs.commit_message }}
