@@ -5,7 +5,8 @@ Imports:
     gha (>= 0.0.0.9000),
     httr2,
     knitr,
-    rvest
+    rvest,
+    pkgload
 Remotes:
     r-lib/gha
 License: MIT
