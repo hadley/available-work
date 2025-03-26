@@ -1,7 +1,5 @@
 name: test.yaml
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -22,7 +20,6 @@ jobs:
     - name: Build
       uses: docker/build-push-action@v6
       with:
-        platforms: linux/amd64
         push: false
         target: test
         tags: ghcr.io/${{ github.repository }}:latest
