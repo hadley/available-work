@@ -37,7 +37,6 @@ WORKDIR /app
 
 RUN if [ -d tests ]; then \
       R -q -e 'testthat::test_local()'; \
-      R -q -e 'covr::to_cobertura(print(covr::package_coverage()))'; \
     fi
 
 ARG GITHUB_SHA
