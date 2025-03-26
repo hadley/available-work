@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Fetch latest data
-      run: Rscript /app/scrape.R
+      run: Rscript /app/main.R
 
     - run: |
         git config --global --add safe.directory $GITHUB_WORKSPACE

@@ -2,36 +2,23 @@
 library(rvest)
 library(gha)
 library(httr2)
+pkgload::load_all()
 
 url <- "http://www.westonlambert.com/available-work"
 html <- read_html(url)
-
-products <- html |>
-  html_element("#productList") |>
-  html_elements("a")
+products <- find_products(html)
 gha_notice("Found {length(products)} products")
-
 if (length(products) == 0) {
   stop("No products found! Did the website change?")
 }
 
-cur <- data.frame(
-  title = products |> html_element(".product-title") |> html_text(),
-  price = products |> 
-    html_element(".product-price") |> 
-    html_text() |>
-    gsub("[$,]", "", x = _) |>
-    as.numeric(),
-  sold_out = !(products |> html_element(".sold-out") |> html_text() |> is.na()),
-  link = html_attr(products, "href")
-)
+cur <- extract_products(products)
 gha_notice("Found {sum(!cur$sold_out)} available products")
-
 gha_summary("### Current products\n")
 gha_summary(knitr::kable(cur))
 
-old <- read.csv("products.csv")
-write.csv(cur, "products.csv", row.names = FALSE)
+old <- read.csv("data/products.csv")
+write.csv(cur, "data/products.csv", row.names = FALSE)
 
 # Find all products that aren't sold out, and I didn't see last time
 new <- subset(cur, !sold_out & !link %in% old$link)
