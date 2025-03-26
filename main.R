@@ -2,7 +2,9 @@
 library(rvest)
 library(gha)
 library(httr2)
-pkgload::load_all()
+
+app_dir <- Sys.getenv("R_APP_WORKSPACE", ".")
+pkgload::load_all(app_dir)
 
 url <- "http://www.westonlambert.com/available-work"
 html <- read_html(url)
@@ -17,7 +19,6 @@ gha_notice("Found {sum(!cur$sold_out)} available products")
 gha_summary("### Current products\n")
 gha_summary(knitr::kable(cur))
 
-data_dir <- Sys.getenv("R_APP_WORKSPACE", ".")
 old <- read.csv("products.csv")
 write.csv(cur, "products.csv", row.names = FALSE)
 
