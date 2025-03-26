@@ -1,4 +1,4 @@
-name: run.yml
+name: execute.yml
 on:
   workflow_dispatch:
   # Run every 3 hours at 15 minutes past the hour
@@ -8,7 +8,7 @@ on:
 permissions: read-all
 
 jobs:
-  scrape:
+  execute:
     runs-on: ubuntu-latest
     permissions:
       contents: write
