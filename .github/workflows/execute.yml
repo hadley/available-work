@@ -23,10 +23,10 @@ jobs:
           ref: data
 
       - name: Fetch latest data
-        run: Rscript /app/main.R
+        run: Rscript main.R
+        working-directory: /app
         env:
-          R_APP_WORKSPACE: ${{ github.workspace }}
-          R_APP_TEMP: ${{ runner.temp }}
+          DATA_DIR: ${{ github.workspace }}
 
       - name: Create commit message
         id: commit_message_step

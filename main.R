@@ -2,9 +2,7 @@
 library(rvest)
 library(gha)
 library(httr2)
-
-app_dir <- Sys.getenv("R_APP_WORKSPACE", ".")
-pkgload::load_all(app_dir)
+pkgload::load_all(if (dir.exists("/app")) "/app" else ".")
 
 url <- "http://www.westonlambert.com/available-work"
 html <- read_html(url)
@@ -19,8 +17,10 @@ gha_notice("Found {sum(!cur$sold_out)} available products")
 gha_summary("### Current products\n")
 gha_summary(knitr::kable(cur))
 
-old <- read.csv("products.csv")
-write.csv(cur, "products.csv", row.names = FALSE)
+data_dir <- Sys.getenv("DATA_DIR", ".")
+products_path <- file.path(data_dir, "products.csv")
+old <- read.csv(products_path)
+write.csv(cur, products_path, row.names = FALSE)
 
 # Find all products that aren't sold out, and I didn't see last time
 new <- subset(cur, !sold_out & !link %in% old$link)
