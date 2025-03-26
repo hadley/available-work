@@ -10,5 +10,6 @@ Remotes:
     r-lib/gha
 License: MIT
 Suggests: 
+    covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
