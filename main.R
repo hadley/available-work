@@ -2,7 +2,22 @@
 library(rvest)
 library(gha)
 library(httr2)
+
+# Dev/prod setup ---------------------------------------------------------------
+
 pkgload::load_all(if (dir.exists("/app")) "/app" else ".")
+
+data_dir <- Sys.getenv("DATA_DIR")
+if (data_dir == "") {
+  if (!dir.exists("data")) {
+    system("git worktree add data data")
+  } else {
+    system("git -C data pull origin")
+  }
+  data_dir <- "data"
+}
+
+# Script -----------------------------------------------------------------------
 
 url <- "http://www.westonlambert.com/available-work"
 html <- read_html(url)
@@ -17,7 +32,6 @@ gha_notice("Found {sum(!cur$sold_out)} available products")
 gha_summary("### Current products\n")
 gha_summary(knitr::kable(cur))
 
-data_dir <- Sys.getenv("DATA_DIR", ".")
 products_path <- file.path(data_dir, "products.csv")
 old <- read.csv(products_path)
 write.csv(cur, products_path, row.names = FALSE)
