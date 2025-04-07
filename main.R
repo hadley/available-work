@@ -1,4 +1,3 @@
-# Inspired by <https://simonwillison.net/2020/Oct/9/git-scraping/>
 library(rvest)
 library(gha)
 library(httr2)
