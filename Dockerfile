@@ -55,23 +55,3 @@ RUN apt-get update && \
     apt-get clean
     
 WORKDIR /app
-
-# -------------------------------------------------------------------------
-# for development. This is the default, so devcontainers run this.
-# it has the test-deps, plus stuff only needed for development
-# -------------------------------------------------------------------------
-FROM test-deps AS dev
-
-RUN R -q -e 'pak::pkg_install(c("devtools", "usethis", "profvis"))'
-RUN R -q -e 'pak::pkg_install("languageserver")'
-
-RUN apt-get update && \
-    apt-get install -y openssh-server && \
-    apt-get clean
-
-RUN echo PermitRootLogin yes >> /etc/ssh/sshd_config && \
-    echo PermitEmptyPasswords yes >> /etc/ssh/sshd_config && \
-    echo Port 2222 >> /etc/ssh/sshd_config && \
-    passwd -d root
-
-RUN git config --global --add safe.directory '/workspaces/*'
