@@ -33,10 +33,10 @@ gha_notice("Found {nrow(new)} new products")
 # if (nrow(new) > 0) {
 if (FALSE) {
   gha_notice("Sending notification")
-  msg <- paste0(nrow(new), " products available at ", url)
-  request("https://ntfy.sh/") |>
-    req_url_path("BjFR7fMVkYMSsFrS") |>
-    req_body_raw(msg) |>
-    req_headers(Title = "Update at Weston Lambert", Click = url) |>
-    req_perform()
+  ntfy::ntfy_send(
+    message = paste0(nrow(new), " products available at ", url),
+    title = "Update at Weston Lambert",
+    topic = "BjFR7fMVkYMSsFrS",
+    click = url
+  )
 }

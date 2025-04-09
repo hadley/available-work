@@ -4,13 +4,14 @@ Version: 1.0.0
 License: MIT
 Imports:
     gha (>= 0.0.0.9000),
-    httr2,
     knitr,
+    ntfy (>= 0.0.6.9002),
     pkgload,
     rvest
 Suggests: 
     testthat (>= 3.0.0)
-Remotes:
-    r-lib/gha
+Remotes: 
+    r-lib/gha,
+    jonocarroll/ntfy
 Config/testthat/edition: 3
 Encoding: UTF-8
