@@ -1,5 +1,10 @@
 name: execute.yml
 on:
+  # Run on deploy
+  workflow_run:
+    workflows: [deploy.yaml]
+    types: [completed]
+  # Run manually
   workflow_dispatch:
   # Run every 3 hours at 15 minutes past the hour
   schedule:
@@ -29,18 +34,14 @@ jobs:
           ref: data
 
       - name: Run
+        id: run
         run: Rscript main.R
         env:
           DATA_DIR: "data"
-
-      - name: Create commit message
-        id: commit_message_step
-        run: |
-          echo "commit_message=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
 
       - name: Publish 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: data
           branch: data
-          commit-message: ${{ steps.commit_message_step.outputs.commit_message }}
+          commit-message: ${{ steps.run.outputs.commit_message }}

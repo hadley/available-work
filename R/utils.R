@@ -17,5 +17,25 @@ data_dir <- function() {
   } else {
     system("git -C data pull origin")
   }
-  "data"  
+  "data"
+}
+
+has_env <- function(name) {
+  Sys.getenv(name) != ""
+}
+
+set_commit_message <- function(value) {
+  writeLines(
+    paste0("commit_message=", value),
+    Sys.getenv("GITHUB_OUTPUT")
+  )
+}
+
+action_url <- function() {
+  paste0(
+    "https://github.com/",
+    Sys.getenv("GITHUB_REPOSITORY"),
+    "/actions/runs/",
+    Sys.getenv("GITHUB_RUN_ID")
+  )
 }
