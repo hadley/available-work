@@ -7,12 +7,15 @@ find_products <- function(html) {
 extract_products <- function(products) {
   data.frame(
     title = products |> html_element(".product-title") |> html_text(),
-    price = products |> 
-      html_element(".product-price") |> 
+    price = products |>
+      html_element(".product-price") |>
       html_text() |>
       gsub("[$,]", "", x = _) |>
       as.numeric(),
-    sold_out = !(products |> html_element(".sold-out") |> html_text() |> is.na()),
+    sold_out = !(products |>
+      html_element(".sold-out") |>
+      html_text() |>
+      is.na()),
     link = html_attr(products, "href")
-  )  
+  )
 }

@@ -7,14 +7,16 @@ test_that("find_products returns empty list if no products found", {
 })
 
 test_that("find_products correct length", {
-  html <- minimal_html('
+  html <- minimal_html(
+    '
     <div id="productList">
       <ul>
         <li><a href="product1">Product 1<span></li>
         <li><a href="product2">Product 2<span></li>
       </ul>
     </div>
-  ')
+  '
+  )
   products <- find_products(html)
   expect_equal(length(products), 2)
 
@@ -22,7 +24,8 @@ test_that("find_products correct length", {
 })
 
 test_that("can extract title, price, and link", {
-  html <- minimal_html('
+  html <- minimal_html(
+    '
     <div id="productList">
       <ul>
         <li><a href="product1">
@@ -35,7 +38,8 @@ test_that("can extract title, price, and link", {
         </a></li>
       </ul>
     </div>
-  ')
+  '
+  )
   products <- extract_products(find_products(html))
   expect_equal(products$title, c("Product 1", "Product 2"))
   expect_equal(products$price, c(2000, 3000))
@@ -43,7 +47,8 @@ test_that("can extract title, price, and link", {
 })
 
 test_that("can extract sold out", {
-  html <- minimal_html('
+  html <- minimal_html(
+    '
     <div id="productList">
       <ul>
         <li><a href="product1">
@@ -53,7 +58,8 @@ test_that("can extract sold out", {
         </a></li>
       </ul>
     </div>
-  ')
+  '
+  )
   products <- extract_products(find_products(html))
   expect_equal(products$sold_out, c(TRUE, FALSE))
 })
