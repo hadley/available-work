@@ -3,6 +3,10 @@ library(gha)
 library(httr2)
 pkgload::load_all()
 
+if (has_env("GITHUB_OUTPUT")) {
+  set_commit_message(action_url())
+}
+
 # Script -----------------------------------------------------------------------
 
 url <- "http://www.westonlambert.com/available-work"
