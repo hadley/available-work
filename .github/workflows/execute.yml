@@ -26,7 +26,6 @@ jobs:
       - name: Check out data
         uses: actions/checkout@v4
         with:
-          path: data
           ref: data
 
       - name: Run
@@ -34,12 +33,12 @@ jobs:
         run: Rscript main.R
         working-directory: /app
         env:
-          DATA_DIR: ${{ github.workspace }}/data
+          DATA_DIR: ${{ github.workspace }}
 
       - name: Publish 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: data
+          folder: .
           branch: data
           commit-message: ${{ steps.run.outputs.commit_message }}
           
