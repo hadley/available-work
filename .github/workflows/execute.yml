@@ -31,7 +31,7 @@ jobs:
       - name: Run
         id: run
         run: Rscript main.R
-        working-directory: /app
+        working-directory: /product
         env:
           DATA_DIR: ${{ github.workspace }}
 
