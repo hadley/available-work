@@ -41,7 +41,9 @@ jobs:
 
       - name: Publish 🚀
         uses: JamesIves/github-pages-deploy-action@v4
+        working-directory: ${{ env.DATA_DIR }}
         with:
-          folder: ${{ env.DATA_DIR }}
+          folder: .
           branch: data
           commit-message: ${{ steps.run.outputs.commit_message }}
+          
