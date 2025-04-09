@@ -32,7 +32,7 @@ jobs:
       - name: Check out data
         uses: actions/checkout@v4
         with:
-          path: ${{env.DATA_DIR}}
+          path: ${{ env.DATA_DIR }}
           ref: data
 
       - name: Run
@@ -42,6 +42,6 @@ jobs:
       - name: Publish 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ${{env.DATA_DIR}}
+          folder: ${{ env.DATA_DIR }}
           branch: data
           commit-message: ${{ steps.run.outputs.commit_message }}
