@@ -26,22 +26,22 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      DATA_DIR: ${{ github.workspace }}/data
     steps:
       - name: Check out data
         uses: actions/checkout@v4
         with:
-          path: data
+          path: ${{env.DATA_DIR}}
           ref: data
 
       - name: Run
         id: run
         run: Rscript main.R
-        env:
-          DATA_DIR: "data"
 
       - name: Publish 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: data
+          folder: ${{env.DATA_DIR}}
           branch: data
           commit-message: ${{ steps.run.outputs.commit_message }}
