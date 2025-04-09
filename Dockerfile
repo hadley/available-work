@@ -53,6 +53,8 @@ COPY --exclude=tests . /app
 RUN apt-get update && \
     apt-get install -y git rsync && \
     apt-get clean
+    
+WORKDIR /app
 
 # -------------------------------------------------------------------------
 # for development. This is the default, so devcontainers run this.

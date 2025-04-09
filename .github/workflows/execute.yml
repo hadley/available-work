@@ -18,15 +18,16 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out data
+        uses: actions/checkout@v4
         with:
+          path: data
           ref: data
 
-      - name: Fetch latest data
+      - name: Run
         run: Rscript main.R
-        working-directory: /app
         env:
-          DATA_DIR: ${{ github.workspace }}
+          DATA_DIR: "data"
 
       - name: Create commit message
         id: commit_message_step
@@ -36,6 +37,6 @@ jobs:
       - name: Publish 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .
+          folder: data
           branch: data
           commit-message: ${{ steps.commit_message_step.outputs.commit_message }}
