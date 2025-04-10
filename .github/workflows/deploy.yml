@@ -29,10 +29,3 @@ jobs:
           target: prod
           tags: ghcr.io/${{ github.repository }}:latest
           labels: org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
-          secret-envs: CODECOV_TOKEN=CODECOV_TOKEN
-          build-args: |
-            GITHUB_SHA=${{ github.sha }}
-            GITHUB_REPOSITORY=${{ github.repository }}
-            GITHUB_REF_NAME=${{ github.ref_name }}
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
