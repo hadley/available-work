@@ -10,6 +10,7 @@ ARG BASE=ghcr.io/r-lib/rig/ubuntu-22.04-release@sha256:1dc2de2cf32dd10945a4ed371
 # -------------------------------------------------------------------------
 FROM --platform=linux/amd64 ${BASE} AS build
 
+WORKDIR /product
 COPY ./DESCRIPTION .
 RUN R -q -e 'pak::pkg_install("deps::.", lib = .Library); pak::pak_cleanup(force = TRUE)' && \
     apt-get clean && \
@@ -33,8 +34,6 @@ RUN R -q -e 'pak::pkg_install("deps::.", dependencies = TRUE)'; \
 FROM test-deps AS test
 
 COPY . /product
-WORKDIR /product
-
 RUN if [ -d tests ]; then \
       R -q -e 'testthat::test_local()'; \
     fi
@@ -53,5 +52,3 @@ COPY --exclude=tests . /product
 RUN apt-get update && \
     apt-get install -y git rsync && \
     apt-get clean
-    
-WORKDIR /product
