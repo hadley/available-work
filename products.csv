@@ -1,6 +1,6 @@
 "title","price","sold_out","link"
 "Custom Stand",250,FALSE,"/available-work/custom-stand"
-"Desert Lapis Vitrolith",1100,FALSE,"/available-work/desert-lapis-vitrolith"
+"Desert Lapis Vitrolith",1100,TRUE,"/available-work/desert-lapis-vitrolith"
 "Aventurine Amethyst Vitrolith",1800,TRUE,"/available-work/aventurine-amethyst-vitrolith"
 "Sandstone Orb",900,TRUE,"/available-work/sandstone-orb"
 "Iolite Vitrolith",1600,TRUE,"/available-work/iolite-vitrolith"
