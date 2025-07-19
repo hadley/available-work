@@ -2,7 +2,7 @@
 "Custom Stand",250,FALSE,"/available-work/custom-stand"
 "Honeycomb Calcite Vitrolith",1100,FALSE,"/available-work/honeycomb-calcite-vitrolith"
 "Turkish Jade Vitrolith",1600,FALSE,"/available-work/turkish-jade-vitrolith"
-"Rose Quartz Vitrolith",1600,FALSE,"/available-work/rose-quartz-vitrolith"
+"Rose Quartz Vitrolith",1600,TRUE,"/available-work/rose-quartz-vitrolith"
 "Wonderstone Vitrolith",800,TRUE,"/available-work/wonderstone-vitrolith"
 "Rainbow Orb Vitrolith",1800,FALSE,"/available-work/rainbow-orb-vitrolith"
 "Rainforest Jasper Vitrolith (w/stand)",1500,TRUE,"/available-work/rainforest-jasper-vitrolith-wstand"
