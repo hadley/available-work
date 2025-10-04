@@ -1,7 +1,7 @@
 "title","price","sold_out","link"
 "Yellow Australian Lace Agate Vitrolith",3200,FALSE,"/available-work/yellow-australian-lace-agate-vitrolith"
 "Serpentine Vitrolith",2300,FALSE,"/available-work/serpentine-vitrolith-1"
-"Chrysacholla Vitrolith",950,FALSE,"/available-work/chrysacholla-vitrolith"
+"Chrysacholla Vitrolith",950,TRUE,"/available-work/chrysacholla-vitrolith"
 "Azurite Vitrolith",800,FALSE,"/available-work/azurite-vitrolith"
 "Seam Agate Vitrolith",800,FALSE,"/available-work/seam-agate-vitrolith"
 "Banded Tiger Iron Vitrolith",750,FALSE,"/available-work/banded-tiger-iron-vitrolith"
