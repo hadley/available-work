@@ -1,6 +1,6 @@
 "title","price","sold_out","link"
 "Spectrolite Vitrolith",2300,FALSE,"/available-work/labradorite-vitrolith-4"
-"Lapis Vitrolith",1000,FALSE,"/available-work/lapis-vitrolith"
+"Lapis Vitrolith",1000,TRUE,"/available-work/lapis-vitrolith"
 "Amethyst Vitrolith",1200,TRUE,"/available-work/chrysacholla-vitrolith"
 "Sliced Marble Vitrolith",800,FALSE,"/available-work/sliced-vitrolith"
 "Poppy Jasper Vitrolith",1200,FALSE,"/available-work/poppy-jasper-vitrolith-1"
