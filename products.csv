@@ -1,7 +1,7 @@
 "title","price","sold_out","link"
 "Spectrolite Vitrolith",1800,FALSE,"/available-work/spectrolite-vitrolith"
 "Etched Amethyst Vitrolith",900,FALSE,"/available-work/etched-amethyst-vitrolith"
-"Lava Flow Vitrolith",800,FALSE,"/available-work/lava-flow-vitrolith"
+"Lava Flow Vitrolith",800,TRUE,"/available-work/lava-flow-vitrolith"
 "Lapis Vitrolith",1800,FALSE,"/available-work/lapis-vitrolith"
 "Cascade Vitrolith (w/stand)",3000,FALSE,"/available-work/vitrolith-wstand"
 "Porcelain Jasper Vitrolith",1500,FALSE,"/available-work/porcelain-jasper-vitrolith"
