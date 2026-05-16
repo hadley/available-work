@@ -6,7 +6,7 @@
 "Shoreline Vitrolith",1400,FALSE,"/available-work/shoreline-vitrolith"
 "Lapis Vitrolith",650,FALSE,"/available-work/lapis-vitrolith"
 "Uranium Serpentine Vitrolith",450,FALSE,"/available-work/crystal-serpentine-vitrolith"
-"Malachite Pocket Sculpture",350,FALSE,"/available-work/malachite-pocket-sculpture"
+"Malachite Pocket Sculpture",350,TRUE,"/available-work/malachite-pocket-sculpture"
 "Labradorite Vitrolith (w/stand)",1800,FALSE,"/available-work/labradorite-vitrolith-wstand"
 "Panopticon Orb - Dichroic",750,FALSE,"/available-work/panopticon-orb-dichroic"
 "Purple Passion Agate Vitrolith (w/stand)",1600,FALSE,"/available-work/purple-crazy-lace-agate-vitrolith-wstand"
@@ -24,3 +24,4 @@
 "Charoite Pocket Sculpture",600,FALSE,"/available-work/charoite-pocket-sculpture"
 "Charoite Vitrolith",900,FALSE,"/available-work/charoite-vitrolith"
 "Custom Forged, Power-coated Steel Stand",250,FALSE,"/available-work/custom-forged-power-coated-steel-stand"
+"Brian",1500,TRUE,"/available-work/kghv1hskxtndhz2455x8x73wjpbjl3"
