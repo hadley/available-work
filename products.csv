@@ -1,7 +1,7 @@
 "title","price","sold_out","link"
 "Green Quartz Vitrolith",1800,FALSE,"/available-work/fluorite-vitrolith"
 "Labradorite Andromeda",900,FALSE,"/available-work/labradorite-andromeda"
-"Moonrise Disc - Etched + Dichroic",1400,FALSE,"/available-work/moonrise-disc-etched-dichroic"
+"Moonrise Disc - Etched + Dichroic",1400,TRUE,"/available-work/moonrise-disc-etched-dichroic"
 "Lapis Moonrise Pocket Sculpture",350,FALSE,"/available-work/lapis-moonrise-pocket-sculpture"
 "Spectrolite Pocket Sculpture",550,FALSE,"/available-work/spectrolite-pocket-sculpture"
 "Australian Boulder Opal Vitrolith",1600,TRUE,"/available-work/australian-boulder-opal-vitrolith-1"
