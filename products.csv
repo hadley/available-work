@@ -1,4 +1,5 @@
 "title","price","sold_out","link"
+"Moroccan Petrified Wood Round Vitrolith",1400,TRUE,"/available-work/petrified-wood-round-vitrolith"
 "Green Quartz Vitrolith",1800,FALSE,"/available-work/fluorite-vitrolith"
 "Labradorite Andromeda",900,FALSE,"/available-work/labradorite-andromeda"
 "Spectrolite Pocket Sculpture",550,FALSE,"/available-work/spectrolite-pocket-sculpture"
@@ -14,4 +15,4 @@
 "Agate Vitrolith",1200,FALSE,"/available-work/agate-vitrolith"
 "Labradorite Vitrolith (w/stand)",1800,FALSE,"/available-work/labradorite-vitrolith-wstand"
 "Custom Forged, Power-coated Steel Stand",250,FALSE,"/available-work/custom-forged-power-coated-steel-stand"
-"Piece of the day!",320,FALSE,"/available-work/uo8l1jae3nu897cc6e35zv8ijqnfio"
+"Piece of the day!",320,TRUE,"/available-work/uo8l1jae3nu897cc6e35zv8ijqnfio"
