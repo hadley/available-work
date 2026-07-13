@@ -22,5 +22,5 @@
 "Green Quartz Vitrolith",1800,FALSE,"/available-work/fluorite-vitrolith"
 "Olympic Crest",2900,FALSE,"/available-work/mounted-jasper"
 "Red Jasper Vitrolith (w/stand)",1400,FALSE,"/available-work/red-jasper-vitrolith-wstand"
-"Spectrolite Pocket Sculpture",550,FALSE,"/available-work/spectrolite-pocket-sculpture"
+"Spectrolite Pocket Sculpture",550,TRUE,"/available-work/spectrolite-pocket-sculpture"
 "Custom Forged, Power-coated Steel Stand",250,FALSE,"/available-work/custom-forged-power-coated-steel-stand"
