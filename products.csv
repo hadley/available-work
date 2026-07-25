@@ -1,7 +1,7 @@
 "title","price","sold_out","link"
 "Moonrise Orb - Dichroic",1100,TRUE,"/available-work/moonrise-orb-dichroic"
 "Quartz Vitrolith",1500,FALSE,"/available-work/quartz-vitrolith"
-"Charoite Vitrolith",1600,FALSE,"/available-work/charoite-vitrolith-1"
+"Charoite Vitrolith",1600,TRUE,"/available-work/charoite-vitrolith-1"
 "Pink Calcite Pocket Sculpture",350,TRUE,"/available-work/pink-calcite-pocket-sculpture"
 "Sodalite Vitrolith",420,TRUE,"/available-work/sodalite-vitrolith"
 "Dino Gem Bone Vitrolith",1000,FALSE,"/available-work/dino-gem-bone-vitrolith"
