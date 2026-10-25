@@ -1,5 +1,5 @@
 "title","price","sold_out","link"
-"Malachite Vitrolith",800,FALSE,"/available-work/malachite-vitrolith"
+"Malachite Vitrolith",800,TRUE,"/available-work/malachite-vitrolith"
 "Dinosaur Gem Bone Vitrolith",1200,FALSE,"/available-work/dinosaur-gem-bone-vitrolith"
 "Malachite Vitrolith",750,TRUE,"/available-work/2y4p3oodsj9jaddljtt5li9w5ddpds"
 "Lapis Aerolith",800,TRUE,"/available-work/8w6ipn6mapkx08gtutmttm3zvoeu6q"
@@ -7,4 +7,4 @@
 "Labradorite Vitrolith",1600,TRUE,"/available-work/r7b3ogj61baecbcey4fktri7dyjq21"
 "Zebra Calcite Pocket Sculpture",350,TRUE,"/available-work/n9g14twdv8ozvff42i2gcbg4lkrno4"
 "Custom Forged, Powder-coated Steel Stand",275,FALSE,"/available-work/custom-forged-power-coated-steel-stand"
-"Glenn’s secret store",1600,FALSE,"/available-work/xp9ejjdfqlhmrwovtrdclxd2ehk9ao"
+"Glenn’s secret store",1600,TRUE,"/available-work/xp9ejjdfqlhmrwovtrdclxd2ehk9ao"
